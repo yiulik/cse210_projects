@@ -10,7 +10,7 @@ class Program
         Console.WriteLine("Welcome to the Journal Program!");
         Console.WriteLine("Please select one of the following choices:");
         Console.WriteLine("1. Write\n2. Display\n3. Load\n4. Save\n5. Quit");
-        Console.Write("What would you like to do? ");
+        Console.Write("\nWhat would you like to do? ");
         string option = Console.ReadLine();        
         
         // Create a new Journal object 
