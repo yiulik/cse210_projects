@@ -4,11 +4,11 @@ public class ReflectionActivity:Activity
     {
 
     }
-    public ReflectionActivity(string name, string description, int duration):base(name, description, duration)
+    public ReflectionActivity(string name, string description):base(name, description)
     {
 
     }
-    public void reflect()
+    public void Reflect()
     {
         Console.WriteLine("\nConsider the following prompt:");
         string prompt = GetPrompts();
@@ -32,14 +32,13 @@ public class ReflectionActivity:Activity
     }
     public string GetPrompts()
     {
-        List<string> prompts = new List<string>();
-        prompts.Add("Think of a time when you stood up for someone else.");
-        prompts.Add("Think of a time when you did something really difficult.");
-        prompts.Add("Think of a time when you helped someone in need.");
-        prompts.Add("Think of a time when you did something truly selfless.");
+        AddItems("Think of a time when you stood up for someone else.");
+        AddItems("Think of a time when you did something really difficult.");
+        AddItems("Think of a time when you helped someone in need.");
+        AddItems("Think of a time when you did something truly selfless.");
         Random rnd = new Random();
-        int i = rnd.Next(prompts.Count);
-        return prompts[i];
+        int i = rnd.Next(GetList().Count);
+        return GetList()[i];
     }
     public string GetQuestions()
     {

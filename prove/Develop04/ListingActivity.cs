@@ -4,7 +4,7 @@ public class ListingActivity:Activity
     {
 
     }
-    public ListingActivity(string name, string description, int duration):base(name, description, duration)
+    public ListingActivity(string name, string description):base(name, description)
     {
 
     }
@@ -30,14 +30,13 @@ public class ListingActivity:Activity
     }
     public string GetListPrompts()
     {
-        List<string> prompts = new List<string>();
-        prompts.Add("Who are people that you appreciate?");
-        prompts.Add("What are personal strengths of yours?");
-        prompts.Add("Who are people that you have helped this week?");
-        prompts.Add("When have you felt the Holy Ghost this month?");
-        prompts.Add("Who are some of your personal heroes?");
+        AddItems("Who are people that you appreciate?");
+        AddItems("What are personal strengths of yours?");
+        AddItems("Who are people that you have helped this week?");
+        AddItems("When have you felt the Holy Ghost this month?");
+        AddItems("Who are some of your personal heroes?");
         Random rnd = new Random();
-        int i = rnd.Next(prompts.Count);
-        return prompts[i];
+        int i = rnd.Next(GetList().Count);
+        return GetList()[i];
     }
 }

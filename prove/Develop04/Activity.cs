@@ -3,13 +3,13 @@ public class Activity
     // Setting up variables
     private string _name, _description;
     private int _duration;
+    private List<string> prompts = new List<string>();
     
     // Constructors
-    public Activity(string name, string description, int duration)
+    public Activity(string name, string description)
     {
         _name = name;
         _description = description;
-        _duration = duration;
     }   
     public Activity()
     {
@@ -22,7 +22,7 @@ public class Activity
     {
         _name = name;
     }
-    public string Getname()
+    public string GetName()
     {
         return _name;
     }
@@ -52,14 +52,11 @@ public class Activity
         Console.WriteLine($"Welcome to the {_name}.\n");
         Console.WriteLine(_description);
         SetDuration();
-    }
-    
-    public void PrepareMsg()
-    {
         Console.Clear();
         Console.WriteLine("Get ready...");
         Spinner(4);
     }
+
     public void EndMsg()
     {
         Console.WriteLine("\nWell done!");
@@ -102,5 +99,13 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
+    }
+    public void AddItems(string text)
+    {
+        prompts.Add(text);
+    }
+    public List<string> GetList()
+    {
+        return prompts;
     }
 }   
