@@ -72,19 +72,19 @@ public class ChecklistGoal : Goal
             if (_current < _times)
             {
                 SetTotal(GetPoints());
-                Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
+                Console.WriteLine($"\nCongratulations! You have earned {GetPoints()} points!");
             }
             else if (_current == _times)
             {
                 SetIsCompleted(true);
                 SetTotal(_bonus + GetPoints());
-                Console.WriteLine($"Congratulations! You have earned {_bonus + GetPoints()} points!");
+                Console.WriteLine($"\nCongratulations! You have earned {_bonus + GetPoints()} points!");
             }
             
         }
         else if (_current >= _times)
         {
-            Console.WriteLine("You have already completed this goal. Please make a new goal.");
+            Console.WriteLine("\nYou have already completed this goal. Please make a new goal.");
         }
         return GetTotal();
     }

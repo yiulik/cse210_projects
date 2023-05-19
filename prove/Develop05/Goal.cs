@@ -1,7 +1,10 @@
+using System;
+using System.Collections.Generic;
 public class Goal
 {
     private string _name, _description;
     private int _points, _totalpts;
+    private int _level = 0;
     private bool _isCompleted = false;
     private List<Goal> _goalList = new List<Goal>();
 
@@ -92,7 +95,17 @@ public class Goal
 
     public void DisplayMenu()
     {
-        Console.WriteLine($"\nYou have {_totalpts} points.\n");
+        Console.WriteLine($"\nYou have {_totalpts} points.");
+        LevelUp();
+        if (_level == 5)
+        {
+            Console.WriteLine("\nCongratulations! You have reached the max level!\n");
+        }
+        else if (_level < 5)
+        {
+            Console.WriteLine($"You are now at level {_level}.");
+            Console.WriteLine($"\nYou still need {1000 - _totalpts%1000} points to level up.\n");
+        }
         Console.WriteLine("Menu Options:\n 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
         Console.Write("\nSelect a choice from the menu: ");
     }
@@ -222,18 +235,18 @@ public class Goal
             if (goal._isCompleted == false)    // Check if it is completed or not. If completed, the user cannot get more points.
             {
                 goal.SetIsCompleted(true);
-                Console.WriteLine($"Congratulations! You have earned {goal._points} points!");
+                Console.WriteLine($"\nCongratulations! You have earned {goal._points} points!");
                 _totalpts += goal._points;
                 Console.WriteLine($"You now have {_totalpts} points.");
             }
             else 
             {
-                Console.WriteLine("You have already completed this goal. Please make a new goal.");
+                Console.WriteLine("\nYou have already completed this goal. Please make a new goal.");
             }
         }
         else if (goal is EternalGoal)
         {
-            Console.WriteLine($"Congratulations! You have earned {goal._points} points!");
+            Console.WriteLine($"\nCongratulations! You have earned {goal._points} points!");
             _totalpts += goal._points;
             Console.WriteLine($"You now have {_totalpts} points.");
         }
@@ -248,5 +261,29 @@ public class Goal
     public virtual int RecordCompletion()
     {
         return -1;
+    }
+
+    public void LevelUp()
+    {
+        if (_totalpts > 5000)
+        {
+            _level = 5;
+        }
+        else if (_totalpts > 4000)
+        {
+            _level = 4;
+        }
+        else if (_totalpts > 3000)
+        {
+            _level = 3;
+        }
+        else if (_totalpts > 2000)
+        {
+            _level = 2;
+        }
+        else if (_totalpts > 1000)
+        {
+            _level = 1;
+        }
     }
 }

@@ -3,3 +3,5 @@ SimpleGoal|name1%des1%50%False
 EternalGoal|name2%des2%60
 ChecklistGoal|name3%des3%70%500%3%0%False
 SimpleGoal|name4%des4%30%False
+SimpleGoal|name5%des5%1050%False
+ChecklistGoal|name6%des6%1030%5000%6%0%False
