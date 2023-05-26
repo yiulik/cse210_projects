@@ -22,4 +22,39 @@ public class Address
     {
         return $"{_street},\n{_city}, {_state}, {_country}";
     }
+
+    // Getters and Setters
+    public string GetStreet()
+    {
+        return _street;
+    }
+    public string GetCity()
+    {
+        return _city;
+    }
+    public string GetState()
+    {
+        return _state;
+    }
+    public string GetCountry()
+    {
+        return _country;
+    }
+    public void SetStreet(string street)
+    {
+        _street = street;
+    }
+    public void SetCity(string city)
+    {
+        _city = city;
+    }
+    public void SetState(string state)
+    {
+        _state = state;
+    }
+
+    public void SetCountry(string country)
+    {
+        _country = country;
+    }
 }
