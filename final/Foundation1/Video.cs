@@ -3,7 +3,7 @@ public class Video
     public string _title, _author;
     public int _length;
 
-    public List<Comment> comments = new List<Comment>();
+    public List<Comment> _comments = new List<Comment>();
 
     public Video(string title, string author, int length)
     {
@@ -18,7 +18,7 @@ public class Video
 
     public void StoreComment(Comment comment)
     {
-        comments.Add(comment);
+        _comments.Add(comment);
     }
 
     public int ReturnComment(List<Comment> comments)
