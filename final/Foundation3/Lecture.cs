@@ -23,7 +23,7 @@ public class Lecture : Event
     {
         return $"\nEvent type: Lecture{ShortDetails()}";
     }
-
+    
     // Getters and Setters
     public string GetSpeaker()
     {
